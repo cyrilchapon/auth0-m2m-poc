@@ -4,6 +4,7 @@ interface BearData {
 }
 
 type BearCreationData = Omit<BearData, 'id'>
+type BearUpdateData = Partial<BearCreationData>
 
 class Bear implements BearData {
   id: number
@@ -37,6 +38,33 @@ class Bear implements BearData {
     return bear
   }
 
+  static update(id: number, data: BearUpdateData) {
+    const _bear = Bear._bears.get(id)
+
+    if (_bear == null) {
+      return null
+    }
+
+    const cleanData = Object.fromEntries(Object.entries(data).filter(([k, v]) => v !== undefined)) as BearUpdateData
+    Object.assign(_bear, cleanData)
+    const bear = Bear.get(id)
+
+    return bear
+  }
+
+  static remove(id: number) {
+    const _bear = Bear._bears.get(id)
+
+    if (_bear == null) {
+      return null
+    }
+    const bear = Bear.get(id)
+
+    Bear._bears.delete(id)
+
+    return bear
+  }
+
   private static _bears = new Map<number, BearCreationData>([
     [1, { name: 'Baloo' }],
     [2, { name: 'Bouba' }],
@@ -45,5 +73,7 @@ class Bear implements BearData {
 }
 
 export {
-  Bear
+  Bear,
+  BearCreationData,
+  BearUpdateData
 }
