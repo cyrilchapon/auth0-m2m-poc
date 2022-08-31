@@ -1,5 +1,6 @@
 import bodyParser from 'body-parser'
 import express from 'express'
+import { checkJwt } from './auth'
 import * as controllers from './controllers'
 
 const bearRouter = express.Router()
@@ -12,6 +13,7 @@ bearRouter.delete('/:id', controllers.bear.remove)
 
 const router = express.Router()
 router.use(bodyParser.json())
+router.use(checkJwt)
 router.use('/bear', bearRouter)
 
 export {
