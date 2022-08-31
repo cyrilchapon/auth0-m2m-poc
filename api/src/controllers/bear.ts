@@ -37,7 +37,7 @@ const create = createAsyncHandler<
   const parsedBody = BearCreationSchema.safeParse(req.body)
 
   if (!parsedBody.success) {
-    res.status(409)
+    res.status(400)
     res.json(parsedBody.error.issues)
     return
   }
@@ -56,7 +56,7 @@ const find = createAsyncHandler<
   const parsedParams = BearFindSchema.safeParse(req.params)
 
   if (!parsedParams.success) {
-    res.status(409)
+    res.status(400)
     res.json(parsedParams.error.issues)
     return
   }
@@ -83,13 +83,13 @@ const update = createAsyncHandler<
   const parsedBody = BearUpdateSchema.safeParse(req.body)
 
   if (!parsedParams.success) {
-    res.status(409)
+    res.status(400)
     res.json(parsedParams.error.issues)
     return
   }
 
   if (!parsedBody.success) {
-    res.status(409)
+    res.status(400)
     res.json(parsedBody.error.issues)
     return
   }
@@ -116,7 +116,7 @@ const remove = createAsyncHandler<
   const parsedParams = BearFindSchema.safeParse(req.params)
 
   if (!parsedParams.success) {
-    res.status(409)
+    res.status(400)
     res.json(parsedParams.error.issues)
     return
   }

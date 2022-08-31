@@ -1,6 +1,7 @@
 {
   "watch": [
     "src",
+    "test",
     ".env"
   ],
   "execMap": {
