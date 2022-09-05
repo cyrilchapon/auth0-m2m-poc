@@ -13,6 +13,10 @@
 - Create two permissions : `update:bear` and `remove:bear`
   <img width="1078" alt="Capture d’écran 2022-08-31 à 18 19 10" src="https://user-images.githubusercontent.com/10728426/187729216-ddc9659a-25bb-4383-aa31-d645e8613f33.png">
 
+3. Configure API
+- Check [api env reference file](api/src/env/index.ts)
+- Create a .env accordingly in the root of */api*
+
 ## Client App
 1. Create and authorize the App
 
@@ -26,11 +30,6 @@
   - And authorize **ONLY `update:bear` scope**
     <img width="816" alt="Capture d’écran 2022-08-31 à 18 23 48" src="https://user-images.githubusercontent.com/10728426/187729869-1c052ea5-faa9-4f5f-8f84-08b89e564f3d.png">
 
-
-
-
-
-
-
-
-[my linked text]: relative/path/in/repo/to/file.txt
+2. Configure App
+- Check [app env reference file](app/src/env/index.ts)
+- Create a .env accordingly in the root of */app*
